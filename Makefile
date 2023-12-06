@@ -6,10 +6,12 @@ CC = cc
 INC = libftprintf.h
 
 SRCS =	ft_printf.c\
-		ft_putchar.c\
-		ft_putstr.c\
-		ft_putnbr.c\
-		ft_howmuch.c\
+		ft_put_c.c\
+		ft_put_s.c\
+		ft_put_d.c\
+		ft_put_p.c\
+		ft_put_x.c\
+		ft_put_u.c\
 
 OBJS = $(SRCS:%.c=%.o)
 %.o : %.c $(INC)

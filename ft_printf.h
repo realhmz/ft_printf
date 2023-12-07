@@ -16,7 +16,7 @@ int	ft_putnbr(int n, int len);
 int ft_putchar(char c);
 int ft_putchar(char c);
 int ft_putstr(char *str);
-int ft_howmuch(long n);
+int ft_put_p(unsigned long n, int i);
 int	ft_put_hexa(unsigned int n, char c, int i);
 int	ft_put_unsigned(unsigned int n,int len);
 

@@ -1,19 +1,19 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int ft_howmuch(long n)
+
+int ft_put_p(unsigned long n, int i)
 {
-	int i;
+	char *t;
 
-	i = 0;
-	if (n < 0)
+	t = "0123456789abcdef";
+	if (n >= 16)
 	{
-		i++;
-		n = n * -1;
+		i +=ft_put_p(n / 16, i);
+		ft_put_p(n % 16, i);
 	}
-	while (n > 0)
+	else
 	{
-		n = n / 10;
-		i++;
+		ft_putchar(t[n]);
 	}
-	return i;
+	return (i);
 }

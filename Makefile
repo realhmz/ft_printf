@@ -3,7 +3,7 @@ CFLAGS = -Werror -Wextra -Wall -std=c99
 
 CC = cc
 
-INC = libftprintf.h
+INC = ft_printf.h
 
 SRCS =	ft_printf.c\
 		ft_put_c.c\

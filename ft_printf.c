@@ -1,6 +1,18 @@
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdio.h>
+
+static void ft_puts(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str && str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
 
 int ft_printf(const char*str,...)
 {
@@ -31,6 +43,11 @@ int ft_printf(const char*str,...)
 				len += ft_put_hexa(va_arg(ag, int), str[i +1],1);
 			else if (str[i + 1] == 'd' || str[i + 1] == 'i')
 				len += ft_putnbr(va_arg(ag,int),1);
+			else if (str[i + 1] == 'p')
+			{
+				ft_puts("0x");
+				len += ft_put_p(va_arg(ag,unsigned long),1);
+			}
 			else if (str[i+1] == 'u')
 				len +=  ft_put_unsigned(va_arg(ag ,unsigned int),1);
 			else if (str[i + 1] == '%')
@@ -49,9 +66,12 @@ int ft_printf(const char*str,...)
   {
 	//char str[] = "salam l3alam";
 
+	int c;
+	c = 95862;
 	//printf("%%");
-	int a = ft_printf("hello|%d|%x|%%|%s|%u|",123,500,"  hello world  ",6100);
-	printf ("||%d||",a);
+	ft_printf("adress: %p", &c);
+	printf("\nadress: %p", &c);
+	//printf("\n adress %p", &c);
    // ft_printf("%c\n",'c');
 	//ft_printf("%d",560);
 	
